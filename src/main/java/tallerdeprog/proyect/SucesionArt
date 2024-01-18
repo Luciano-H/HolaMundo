@@ -1,0 +1,20 @@
+package com.mycompany.ejemplos1;
+import java.util.Scanner;
+public class Ejemplos3 {
+
+    public static void main(String[] args) {
+    Scanner Lector=new Scanner(System.in);  
+    int n1,n2,n3;
+    System.out.print("Ingrese primer numero");
+    n1= Lector.nextInt();
+    System.out.print("Ingrese primer numero");
+    n2= Lector.nextInt();
+    System.out.print("Ingrese primer numero");
+    n3= Lector.nextInt();  
+    if(n2-n1==n3-n2){   
+        System.out.println("Si es una progresion aritmetica");
+    }else{  
+        System.out.println("No es una progresion aritmetica");
+    }      
+    }
+}
