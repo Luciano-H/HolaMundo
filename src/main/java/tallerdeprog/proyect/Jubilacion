@@ -1,0 +1,24 @@
+package com.mycompany.ejemplos1;
+
+import java.util.Scanner;
+
+public class ejemplos2 {
+   public static void main(String[] args) {
+    char sexo;
+    int edad;
+    Scanner Lector=new Scanner(System.in);  
+    System.out.println("Ingrese Sexo F/M:");
+    sexo= Lector.next().charAt(0);
+    System.out.println("Ingrese edad");
+    edad= Lector.nextInt();
+    boolean resultado=(sexo=='M' && edad>=65)||(sexo== 'F' && edad>=60);
+    if (resultado){
+        System.out.println("Se puede jubilar");
+        
+    }else{ 
+        System.out.println("No se puede jubilar");
+    }
+        
+    }   
+    
+}
