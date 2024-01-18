@@ -1,0 +1,39 @@
+package com.mycompany.ejemplos1;
+
+import java.util.Scanner;
+
+public class ejemplo4 {    
+       public static void main(String[] args){
+       double sueldo,salud=15000,educacion=12000, transporte=18000;
+       char sector,sexo;
+       Scanner lector=new Scanner(System.in);
+       
+       System.out.println("Ingrese sexo F/M");
+       sexo=Character.toUpperCase(lector.next().charAt(0));
+       System.out.println("Ingrese Sector Salud/Educacion/Transporte");
+       sector=Character.toUpperCase(lector.next().charAt(0));    
+       if(sexo=='F'){
+           if(sector=='S'){
+               sueldo=salud*1.25;
+           }else {
+               if(sector=='E'){
+                   sueldo=educacion*1.12;
+               }else{
+                   sueldo=transporte*1.2;
+               }
+           }
+       }else{
+           if(sector=='S'){
+               sueldo=salud*1.2;
+           }else {
+               if(sector=='E'){
+                   sueldo=educacion*1.11;
+               }else{
+                   sueldo=transporte*1.15;
+               }
+           }
+       }
+       
+       System.out.printf("El sueldo para %S en el sector "+"%S es de %f \n", sexo,sector,sueldo);
+   } 
+}
