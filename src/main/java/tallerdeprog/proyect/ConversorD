@@ -1,0 +1,51 @@
+package com.mycompany.ejemplos1;
+
+import java.util.Scanner;
+
+
+public class CotizacionD {
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner lector=new Scanner(System.in);
+            
+        final double DOLAR=3.82;
+        final double EURO=4.17;
+        System.out.println("Ingrese 1 soles, 2 dolares, 3 euros");
+        int moneda=lector.nextInt();
+        System.out.println("Ingrese el monto a convertir: ");
+        double importe=lector.nextDouble();
+        double resultado=0;
+        
+        switch(moneda){
+            case 1:
+                resultado=importe*3.78;                     
+                break;
+            case 2:
+                resultado=importe/3.78;
+                break;
+            case 3:
+                resultado=importe*4.5;
+                break;
+            default:
+                resultado=-1;
+        }
+        String impresion="""
+                         El resultado de la operacion:
+                         Importe ingresado:         %.2f
+                         Convertir a:               %s
+                         Resultado:                 %.2f
+                         """;
+        String descripcionmoneda="";
+        
+        if (moneda==1)
+            descripcionmoneda="Soles";
+        else if(moneda==2)
+            descripcionmoneda="Dolares";
+        else if (moneda==3)
+            descripcionmoneda="Euros";
+        else
+            descripcionmoneda="Error";
+        System.out.printf(impresion,importe,descripcionmoneda,resultado);                                                                  
+    }   
+}
