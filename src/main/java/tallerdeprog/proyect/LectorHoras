@@ -1,0 +1,55 @@
+java
+import java.util.Scanner;
+
+public class SiguienteSegundo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Leer horas
+        System.out.print("Ingrese las horas (0-24): ");
+        int horas = scanner.nextInt();
+
+        // Validar horas
+        if (horas < 0 || horas > 24) {
+            System.out.println("Valor de horas inválido");
+            return;
+        }
+
+        // Leer minutos
+        System.out.print("Ingrese los minutos (0-59): ");
+        int minutos = scanner.nextInt();
+
+        // Validar minutos
+        if (minutos < 0 || minutos > 59) {
+            System.out.println("Valor de minutos inválido");
+            return;
+        }
+
+        // Leer segundos
+        System.out.print("Ingrese los segundos (0-59): ");
+        int segundos = scanner.nextInt();
+
+        // Validar segundos
+        if (segundos < 0 || segundos > 59) {
+            System.out.println("Valor de segundos inválido");
+            return;
+        }
+
+        // Calcular siguiente segundo
+        segundos++;
+        if (segundos >= 60) {
+            segundos = 0;
+            minutos++;
+            if (minutos >= 60) {
+                minutos = 0;
+                horas++;
+                if (horas >= 24) {
+                    horas = 0;
+                }
+            }
+        }
+
+        // Mostrar resultado
+        System.out.println("La hora en el siguiente segundo es: " + horas + ":" + minutos + ":" + segundos);
+    }
+}
