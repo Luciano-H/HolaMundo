@@ -1,0 +1,41 @@
+¡Claro! Puedo ayudarte con eso. Aquí tienes un programa en Java que determina si un número de 6 cifras es mágico o no:
+
+```java
+import java.util.Scanner;
+
+public class NumeroMagico {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Ingrese un número de 6 cifras: ");
+        int numero = scanner.nextInt();
+        
+        int primeraParte = numero / 1000;
+        int segundaParte = numero % 1000;
+        
+        int sumaPrimeraParte = sumaDigitos(primeraParte);
+        int sumaSegundaParte = sumaDigitos(segundaParte);
+        
+        if (sumaPrimeraParte == sumaSegundaParte) {
+            System.out.println("El número es mágico.");
+        } else {
+            System.out.println("El número no es mágico.");
+        }
+    }
+    
+    public static int sumaDigitos(int numero) {
+        int suma = 0;
+        
+        while (numero != 0) {
+            suma += numero % 10;
+            numero /= 10;
+        }
+        
+        return suma;
+    }
+}
+```
+
+Este programa solicita al usuario ingresar un número de 6 cifras y luego verifica si la suma de las tres primeras cifras es igual a la suma de las tres últimas cifras. Si son iguales, se considera que el número es mágico. De lo contrario, se considera que no lo es.
+
+Espero que esto te sea útil. Si tienes alguna otra pregunta, ¡no dudes en preguntar!
