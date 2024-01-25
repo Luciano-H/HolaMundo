@@ -1,0 +1,9 @@
+Un entrenador le ha propuesto a un atleta recorrer una ruta de cinco kilómetros durante 3 días, para determinar si es apto para la prueba de 5 Kilómetros o debe buscar otra especialidad. Para considerarlo apto debe cumplir por lo menos una de las siguientes condiciones:
+
+
+• Que en ninguna de las pruebas haga un tiempo mayor a 16 minutos.
+• Que al menos en una de las pruebas realice un tiempo menor a 16 minutos.
+• Que su promedio de tiempos sea menor o igual a 15 minutos.
+ 
+
+Deberá ingresar por teclado el resultado de las 3 carreras y el nombre del corredor y escribir un programa que permita determinar si el atleta es apto o no, el resultado final debe ser "Nombre es apto" o "Nombre no es apto".
