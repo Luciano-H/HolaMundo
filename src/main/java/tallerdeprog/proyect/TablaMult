@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+
+public class S4 {
+
+
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int numero, i =1;
+        Scanner lector=new Scanner(System.in);
+        System.out.print("Ingrese un entero entre 1 y 12: ");
+        numero = lector.nextInt();
+        lector.nextLine();
+        
+        do{
+            System.out.printf("%d x %2d = %3d\n", numero, i, numero * i );
+        }while (++i <= 12);
+       
+    }
+    
+}
