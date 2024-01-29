@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class PrimoFactorialProgram {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String continuar = "si";
+
+        while (continuar.equalsIgnoreCase("si")) {
+            System.out.print("Ingrese un número: ");
+            int numero = scanner.nextInt();
+
+            System.out.println("Seleccione la operación:");
+            System.out.println("1. Determinar si es primo");
+            System.out.println("2. Hallar su factorial");
+
+            int opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    boolean esPrimo = true;
+                    if (numero < 2) {
+                        esPrimo = false;
+                    } else {
+                        for (int i = 2; i <= Math.sqrt(numero); i++) {
+                            if (numero % i == 0) {
+                                esPrimo = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    System.out.println(numero + (esPrimo ? " es primo." : " no es primo."));
+                    break;
+
+                case 2:
+                    int factorial = 1;
+                    for (int i = 2; i <= numero; i++) {
+                        factorial *= i;
+                    }
+                    System.out.println("El factorial de " + numero + " es: " + factorial);
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+
+            System.out.print("¿Desea continuar? (si/no): ");
+            continuar = scanner.next();
+        }
+
+        System.out.println("Programa terminado.");
+    }
+}
