@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class GeneradorProgresion {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el tipo de progresión (a para aritmética, g para geométrica): ");
+        char tipoProgresion = scanner.next().charAt(0);
+
+        System.out.println("Ingrese la razón: ");
+        int razon = scanner.nextInt();
+
+        System.out.println("Ingrese el número de términos a generar: ");
+        int cantidadTerminos = scanner.nextInt();
+
+        if (tipoProgresion == 'a') {
+            generarAritmetica(razon, cantidadTerminos);
+        } else if (tipoProgresion == 'g') {
+            generarGeometrica(razon, cantidadTerminos);
+        } else {
+            System.out.println("Tipo de progresión no válido. Ingresa 'a' para aritmética o 'g' para geométrica.");
+        }
+    }
+
+    public static void generarAritmetica(int razon, int cantidadTerminos) {
+        int primerTermino = 2; // Puedes ajustar el valor inicial según tus necesidades
+
+        System.out.println("Secuencia aritmética:");
+        for (int i = 0; i < cantidadTerminos; i++) {
+            int numero = primerTermino + i * razon;
+            System.out.print(numero + " ");
+        }
+    }
+
+    public static void generarGeometrica(int razon, int cantidadTerminos) {
+        int primerTerminoGeo = 2; // Puedes ajustar el valor inicial según tus necesidades
+
+        System.out.println("Secuencia geométrica:");
+        for (int i = 0; i < cantidadTerminos; i++) {
+            int numeroGeo = (int) (primerTerminoGeo * Math.pow(razon, i));
+            System.out.print(numeroGeo + " ");
+        }
+    }
+}
