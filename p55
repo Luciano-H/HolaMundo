@@ -1,0 +1,47 @@
+Para imprimir el formato solicitado, puedes utilizar la función `printf` de tu lenguaje de programación preferido. Asegúrate de solicitar al usuario que ingrese el tipo de producto por teclado.
+
+Luego, crea tres arreglos paralelos para almacenar el nombre de los productos, las cantidades y los precios. Estos valores pueden ser fijos o puedes solicitarlos al usuario.
+
+A continuación, calcula el subtotal para cada producto multiplicando la cantidad por el precio. También calcula el total sumando todos los subtotales.
+
+Finalmente, utiliza la función `printf` para imprimir el formato solicitado, reemplazando los valores correspondientes en cada línea. Recuerda utilizar los arreglos paralelos para obtener los nombres, cantidades y precios de los productos.
+
+Aquí tienes un ejemplo en lenguaje C:
+
+```c
+#include <stdio.h>
+
+int main() {
+    char tipoProducto[20];
+    printf("Ingrese el tipo de producto: ");
+    scanf("%s", tipoProducto);
+
+    char nombres[3][20] = {"Producto A", "Producto B", "Producto C"};
+    int cantidades[3] = {10, 10, 10};
+    float precios[3] = {20.0, 20.0, 20.0};
+
+    float subtotales[3];
+    float total = 0.0;
+
+    printf("\n\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+    printf("X                       Compra de %s                            X\n", tipoProducto);
+    printf("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n\n");
+    printf("X  Nombre producto Cant   Precio      SubTotal                              X\n");
+
+    for (int i = 0; i < 3; i++) {
+        subtotales[i] = cantidades[i] * precios[i];
+        total += subtotales[i];
+        printf("X  %-15s %5d %8.2f %14.2f                                   X\n", nombres[i], cantidades[i], precios[i], subtotales[i]);
+    }
+
+    printf("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+    printf("X  Total %31.2f                                                                                  X\n", total);
+    printf("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n");
+
+    return 0;
+}
+```
+
+Este código te imprimirá el formato solicitado, reemplazando `<TIPO PRODUCTO>` con el tipo de producto ingresado por el usuario, y `<Producto A>`, `<Producto B>` y `<Producto C>` con los nombres de los productos en los arreglos.
+
+Recuerda adaptar el código a tu lenguaje de programación específico si no estás utilizando C.
