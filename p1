@@ -1,0 +1,12 @@
+Llenar dos vectores A y B de 45 elementos cada uno con números aleatorios, imprimir todos los elementos de la siguiente forma “El elemento de indice 0  del vector A sumado con el elemento de indice 0 del vector B es N1+N2= sumar” donde indice 0 es el indice de los vectores N1 es el numero almacenado en ese indice del vector A, N2 el numero almacenado en ese indice del vector B y sumar la suma de los elementos.
+
+
+El siguiente código te genera numero aleatorios
+
+ 
+
+import java.util.Random;
+
+Random random = new Random();
+
+random.nextInt(201) - 100;
