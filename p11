@@ -1,0 +1,29 @@
+Claro, puedo ayudarte a generar los dos vectores y mostrar la suma de los elementos. Aquí tienes un ejemplo de cómo podrías hacerlo en Java:
+
+```java
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] A = new int[45];
+        int[] B = new int[45];
+        Random random = new Random();
+
+        // Llenar los vectores A y B con números aleatorios
+        for (int i = 0; i < 45; i++) {
+            A[i] = random.nextInt(201) - 100;
+            B[i] = random.nextInt(201) - 100;
+        }
+
+        // Imprimir los elementos y la suma
+        for (int i = 0; i < 45; i++) {
+            int sumar = A[i] + B[i];
+            System.out.println("El elemento de indice " + i + " del vector A sumado con el elemento de indice " + i + " del vector B es " + A[i] + "+" + B[i] + "=" + sumar);
+        }
+    }
+}
+```
+
+Este código generará dos vectores `A` y `B` de 45 elementos cada uno, llenos con números aleatorios entre -100 y 100. Luego, recorre los vectores para imprimir cada elemento y la suma correspondiente.
+
+Espero que esto te ayude. Si tienes alguna otra pregunta, no dudes en hacerla.
