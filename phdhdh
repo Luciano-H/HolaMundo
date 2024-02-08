@@ -1,0 +1,41 @@
+Claro, aquí tienes un ejemplo de cómo imprimir el formato solicitado en Java utilizando `printf`:
+
+```java
+import java.util.Scanner;
+
+public class CompraProductos {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Pedir el tipo de producto al usuario
+        System.out.print("Ingrese el tipo de producto: ");
+        String tipoProducto = scanner.nextLine();
+
+        // Arreglos paralelos para guardar los nombres, cantidades y precios
+        String[] nombresProductos = {"Producto A", "Producto B", "Producto C"};
+        int[] cantidades = {10, 10, 10};
+        double[] precios = {20.0, 20.0, 20.0};
+
+        // Imprimir el encabezado
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        System.out.printf("X                       Compra de %s                            X%n", tipoProducto);
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        System.out.println("X  Nombre producto Cant   Precio      SubTotal                              X");
+
+        // Imprimir los productos
+        double subTotal = 0;
+        for (int i = 0; i < nombresProductos.length; i++) {
+            double subTotalProducto = cantidades[i] * precios[i];
+            System.out.printf("X  %-15s %4d %9.2f %15.2f                                   X%n", nombresProductos[i], cantidades[i], precios[i], subTotalProducto);
+            subTotal += subTotalProducto;
+        }
+
+        // Imprimir el total
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        System.out.printf("X  Total %50.2f                                                                  X%n", subTotal);
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+    }
+}
+```
+
+Este código te permitirá ingresar el tipo de producto por teclado, y luego imprimirá el formato solicitado con los nombres de los productos, cantidades, precios, subtotales y total.
