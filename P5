@@ -1,0 +1,28 @@
+Imprimir exactamente el formato solicitado teniendo en cuenta lo siguiente:
+
+Usar printf
+El tipo Producto deberá ingresarlo por teclado
+Deberá crear arreglos paralelos para guardar nombre de tres productos, cantidades y precios, los cuales seran valores fijos
+El subTotal deberá ser calculado, el total también deberá ser calculado
+
+ 
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+X                       Compra de <TIPO PRODUCTO>                            X
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+X  Nombre producto Cant   Precio      SubTotal                              X
+
+X  <Producto A>     10         20               200                                   X
+
+X  <Producto B>     10         20               200                                  X
+
+X  <Producto C>     10         20               200                                  X
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+X  Total     600                                                                                  X
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
