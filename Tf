@@ -1,0 +1,118 @@
+import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+public class ControlInventarioApp {
+
+    private static final List<Producto> inventario = new ArrayList<>();
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        while (true) {
+            mostrarMenu();
+            int opcion = obtenerEntero("Ingrese su opción: ");
+            procesarOpcion(opcion);
+        }
+    }
+
+    private static void mostrarMenu() {
+        System.out.println("------ Menú ------");
+        System.out.println("1. Agregar Producto al Inventario");
+        System.out.println("2. Mostrar Inventario");
+        System.out.println("3. Salir");
+    }
+
+    private static void procesarOpcion(int opcion) {
+        switch (opcion) {
+            case 1:
+                agregarProducto();
+                break;
+            case 2:
+                mostrarInventario();
+                break;
+            case 3:
+                guardarInventarioEnArchivo();
+                System.exit(0);
+            default:
+                System.out.println("Opción no válida. Inténtelo de nuevo.");
+        }
+    }
+
+    private static void agregarProducto() {
+        String nombre = obtenerCadena("Ingrese el nombre del producto: ");
+        String codigo = obtenerCadena("Ingrese el código del producto: ");
+        Date fechaVencimiento = obtenerFechaVencimiento();
+
+        Producto producto = new Producto(nombre, codigo, fechaVencimiento);
+        inventario.add(producto);
+
+        System.out.println("Producto agregado al inventario con éxito.");
+    }
+
+    private static void mostrarInventario() {
+        System.out.println("------ Inventario ------");
+        for (Producto producto : inventario) {
+            System.out.println(producto);
+        }
+    }
+
+    private static void guardarInventarioEnArchivo() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("inventario.txt"))) {
+            for (Producto producto : inventario) {
+                writer.println(producto);
+            }
+            System.out.println("Inventario guardado en archivo 'inventario.txt'");
+        } catch (IOException e) {
+            System.out.println("Error al guardar el inventario en archivo.");
+        }
+    }
+
+    private static Date obtenerFechaVencimiento() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        dateFormat.setLenient(false);
+
+        while (true) {
+            try {
+                String fechaStr = obtenerCadena("Ingrese la fecha de vencimiento (dd/MM/yyyy): ");
+                return dateFormat.parse(fechaStr);
+            } catch (ParseException e) {
+                System.out.println("Formato de fecha incorrecto. Inténtelo de nuevo.");
+            }
+        }
+    }
+
+    private static int obtenerEntero(String mensaje) {
+        while (true) {
+            try {
+                System.out.print(mensaje);
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, ingrese un número entero válido.");
+            }
+        }
+    }
+
+    private static String obtenerCadena(String mensaje) {
+        System.out.print(mensaje);
+        return scanner.nextLine();
+    }
+}
+
+class Producto {
+    private String nombre;
+    private String codigo;
+    private Date fechaVencimiento;
+
+    public Producto(String nombre, String codigo, Date fechaVencimiento) {
+        this.nombre = nombre;
+        this.codigo = codigo;
+        this.fechaVencimiento = fechaVencimiento;
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        return "Nombre: " + nombre + ", Código: " + codigo + ", Vencimiento: " + dateFormat.format(fechaVencimiento);
+    }
+}
