@@ -1,0 +1,82 @@
+
+import java.util.Scanner;
+
+class Tablero {
+    private char[][] matriz;
+
+    public Tablero() {
+        matriz = new char[3][3];
+        // Inicializar el tablero con espacios en blanco
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                matriz[i][j] = ' ';
+            }
+        }
+    }
+
+    public void imprimirTablero() {
+        System.out.println("-------------");
+        for (int i = 0; i < 3; i++) {
+            System.out.print("| ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(matriz[i][j] + " | ");
+            }
+            System.out.println("\n-------------");
+        }
+    }
+
+    public boolean realizarMovimiento(int fila, int columna, char jugador) {
+        if (fila >= 0 && fila < 3 && columna >= 0 && columna < 3 && matriz[fila][columna] == ' ') {
+            matriz[fila][columna] = jugador;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean hayGanador(char jugador) {
+        // Verificar filas y columnas
+        for (int i = 0; i < 3; i++) {
+            if ((matriz[i][0] == jugador && matriz[i][1] == jugador && matriz[i][2] == jugador) ||
+                (matriz[0][i] == jugador && matriz[1][i] == jugador && matriz[2][i] == jugador)) {
+                return true;
+            }
+        }
+
+        // Verificar diagonales
+        return (matriz[0][0] == jugador && matriz[1][1] == jugador && matriz[2][2] == jugador) ||
+               (matriz[0][2] == jugador && matriz[1][1] == jugador && matriz[2][0] == jugador);
+    }
+}
+
+public class JuegoTresEnLinea {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Tablero tablero = new Tablero();
+
+        char jugadorActual = 'X';
+        boolean juegoEnCurso = true;
+
+        while (juegoEnCurso) {
+            tablero.imprimirTablero();
+            System.out.println("Turno del jugador " + jugadorActual);
+            System.out.print("Ingrese fila (0-2): ");
+            int fila = scanner.nextInt();
+            System.out.print("Ingrese columna (0-2): ");
+            int columna = scanner.nextInt();
+
+            if (tablero.realizarMovimiento(fila, columna, jugadorActual)) {
+                if (tablero.hayGanador(jugadorActual)) {
+                    tablero.imprimirTablero();
+                    System.out.println("¡El jugador " + jugadorActual + " ha ganado!");
+                    juegoEnCurso = false;
+                } else {
+                    jugadorActual = (jugadorActual == 'X') ? 'O' : 'X';
+                }
+            } else {
+                System.out.println("Movimiento inválido. Inténtelo de nuevo.");
+            }
+        }
+
+        scanner.close();
+    }
+}
