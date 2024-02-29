@@ -1,0 +1,15 @@
+Para organizar correctamente el proyecto, puedes seguir la siguiente estructura de carpetas:
+
+- Proyecto
+  - src
+    - main
+      - java
+        - controlador
+          - ControladorExamen.java
+        - modelo
+          - Examen.java
+        - App.java (archivo principal para ejecutar el programa)
+    - test (carpeta opcional para pruebas unitarias)
+  - doc (carpeta para documentación adicional)
+  - README.md (archivo con información del proyecto)
+  - proyecto.apellidos (archivo del proyecto con tus apellidos como nombre)
